@@ -27,7 +27,41 @@ transmitter gain, receiver gain, radar frequency, radar cross section, and minim
 
    ___Algorithm__:
    
+```   
+clc
+clear;
+close;
 
+Pt = 1000;
+G = 40;
+lambda = 0.05;
+sigma = 10;
+pi4 = (4*%pi)^3;
+
+R = linspace(1e3, 200e3, 500);
+Pr_R = (Pt .* G^2 .* lambda^2 .* sigma) ./ (pi4 .* R.^4);
+figure(1);
+Pr_R_dB = 10 .* log10(Pr_R);
+plot(R/1000, Pr_R_dB);
+xlabel("Power Received");
+ylabel("Range");
+
+Pt_values = linspace(100, 10000, 500);
+R_fixed = 50e3;
+Pr_Pt = (Pt_values .* G^2 .* lambda^2 .* sigma) ./ (pi4 .* R_fixed.^4);
+figure(2);
+plot(Pt_values, Pr_Pt);
+xlabel("Power Received");
+ylabel("Power Transmitted");
+
+G_values = linspace(5, 60, 500);
+Pt_fixed = 3000;
+Pr_G = (Pt_fixed .* G_values.^2 .* lambda^2 .* sigma) ./ (pi4 .* R_fixed.^4);
+figure(3);
+plot(G_values, Pr_G);
+xlabel("Power Received");
+ylabel("Gain");
+```
 
 
 
@@ -35,7 +69,11 @@ transmitter gain, receiver gain, radar frequency, radar cross section, and minim
 
 
    __Output__:
-   
+   <img width="959" height="539" alt="image" src="https://github.com/user-attachments/assets/9103a30d-d616-4a13-a8df-db85da20d165" />
+
+   <img width="959" height="539" alt="image" src="https://github.com/user-attachments/assets/b7252524-5a7d-4a91-9d95-fdd2ba7ea68f" />
+
+   <img width="959" height="539" alt="image" src="https://github.com/user-attachments/assets/421ac1d4-51f6-4b65-a7bc-dda699ef5314" />
 
 
 
@@ -44,6 +82,9 @@ transmitter gain, receiver gain, radar frequency, radar cross section, and minim
 
 
    __Result__:
+   The radar range equation was successfully implemented using Python.
+   The received power variations with range, transmitted power, and gain were plotted.
+   Thus, the maximum radar range and system performance were verified.
    
 
 
