@@ -85,6 +85,8 @@ ylabel("Gain");
    The radar range equation was successfully implemented using Python.
    The received power variations with range, transmitted power, and gain were plotted.
    Thus, the maximum radar range and system performance were verified.
+   ![WhatsApp Image 2025-11-22 at 10 49 26 PM](https://github.com/user-attachments/assets/4d63697f-5efa-4050-82b9-c1d490bae6f2)
+
    
 
 
